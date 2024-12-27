@@ -36,8 +36,7 @@ sealed class RealtimeEvent with _$RealtimeEvent {
     /// will be appended to the end of the conversation. If set, it allows an item to be inserted
     /// mid-conversation. If the ID cannot be found, an error will be returned and the item will not be
     /// added.
-    @JsonKey(name: 'previous_item_id', includeIfNull: false)
-    String? previousItemId,
+    @JsonKey(name: 'previous_item_id', includeIfNull: false) String? previousItemId,
 
     /// The item to add to the conversation.
     /// Any of: [ItemMessage], [ItemFunctionCall], [ItemFunctionCallOutput]
@@ -369,8 +368,7 @@ sealed class RealtimeEvent with _$RealtimeEvent {
     @JsonKey(name: 'event_id') required String eventId,
 
     /// The type of the event.
-    @Default(RealtimeEventType.conversationItemTruncated)
-    RealtimeEventType type,
+    @Default(RealtimeEventType.conversationItemTruncated) RealtimeEventType type,
 
     /// The ID of the assistant message item that was truncated.
     @JsonKey(name: 'item_id') required String itemId,
@@ -431,11 +429,10 @@ sealed class RealtimeEvent with _$RealtimeEvent {
     @JsonKey(name: 'event_id') required String eventId,
 
     /// The type of the event.
-    @Default(RealtimeEventType.inputAudioBufferCommitted)
-    RealtimeEventType type,
+    @Default(RealtimeEventType.inputAudioBufferCommitted) RealtimeEventType type,
 
     /// The ID of the preceding item after which the new item will be inserted.
-    @JsonKey(name: 'previous_item_id') required String previousItemId,
+    @JsonKey(name: 'previous_item_id') required String? previousItemId,
 
     /// The ID of the user message item that will be created.
     @JsonKey(name: 'item_id') required String itemId,
@@ -459,8 +456,7 @@ sealed class RealtimeEvent with _$RealtimeEvent {
     @JsonKey(name: 'event_id') required String eventId,
 
     /// The type of the event.
-    @Default(RealtimeEventType.inputAudioBufferSpeechStarted)
-    RealtimeEventType type,
+    @Default(RealtimeEventType.inputAudioBufferSpeechStarted) RealtimeEventType type,
 
     /// Milliseconds from the start of all audio written to the buffer during the session when speech was
     /// first detected. This will correspond to the beginning of audio sent to the model, and thus
@@ -485,8 +481,7 @@ sealed class RealtimeEvent with _$RealtimeEvent {
     @JsonKey(name: 'event_id') required String eventId,
 
     /// The type of the event.
-    @Default(RealtimeEventType.inputAudioBufferSpeechStopped)
-    RealtimeEventType type,
+    @Default(RealtimeEventType.inputAudioBufferSpeechStopped) RealtimeEventType type,
 
     /// Milliseconds since the session started when speech stopped. This will correspond to the end of
     /// audio sent to the model, and thus includes the `min_silence_duration_ms` configured in the
@@ -586,8 +581,7 @@ sealed class RealtimeEvent with _$RealtimeEvent {
     @JsonKey(name: 'event_id') required String eventId,
 
     /// The type of the event.
-    @Default(RealtimeEventType.responseAudioTranscriptDelta)
-    RealtimeEventType type,
+    @Default(RealtimeEventType.responseAudioTranscriptDelta) RealtimeEventType type,
 
     /// The ID of the response.
     @JsonKey(name: 'response_id') required String responseId,
@@ -617,8 +611,7 @@ sealed class RealtimeEvent with _$RealtimeEvent {
     @JsonKey(name: 'event_id') required String eventId,
 
     /// The type of the event.
-    @Default(RealtimeEventType.responseAudioTranscriptDone)
-    RealtimeEventType type,
+    @Default(RealtimeEventType.responseAudioTranscriptDone) RealtimeEventType type,
 
     /// The ID of the response.
     @JsonKey(name: 'response_id') required String responseId,
@@ -749,8 +742,7 @@ sealed class RealtimeEvent with _$RealtimeEvent {
     @JsonKey(name: 'event_id') required String eventId,
 
     /// The type of the event.
-    @Default(RealtimeEventType.responseFunctionCallArgumentsDelta)
-    RealtimeEventType type,
+    @Default(RealtimeEventType.responseFunctionCallArgumentsDelta) RealtimeEventType type,
 
     /// The ID of the response.
     @JsonKey(name: 'response_id') required String responseId,
@@ -780,8 +772,7 @@ sealed class RealtimeEvent with _$RealtimeEvent {
     @JsonKey(name: 'event_id') required String eventId,
 
     /// The type of the event.
-    @Default(RealtimeEventType.responseFunctionCallArgumentsDone)
-    RealtimeEventType type,
+    @Default(RealtimeEventType.responseFunctionCallArgumentsDone) RealtimeEventType type,
 
     /// The ID of the response.
     @JsonKey(name: 'response_id') required String responseId,
@@ -1027,8 +1018,7 @@ sealed class RealtimeEvent with _$RealtimeEvent {
     @JsonKey(name: 'event_id') required String eventId,
 
     /// The type of the event.
-    @Default(RealtimeEventType.conversationItemCompleted)
-    RealtimeEventType type,
+    @Default(RealtimeEventType.conversationItemCompleted) RealtimeEventType type,
 
     /// A formatted item.
     required FormattedItem item,
@@ -1054,8 +1044,7 @@ sealed class RealtimeEvent with _$RealtimeEvent {
   }) = RealtimeEventGeneric;
 
   /// Object construction from a JSON representation
-  factory RealtimeEvent.fromJson(Map<String, dynamic> json) =>
-      _$RealtimeEventFromJson(json);
+  factory RealtimeEvent.fromJson(Map<String, dynamic> json) => _$RealtimeEventFromJson(json);
 }
 
 // ==========================================

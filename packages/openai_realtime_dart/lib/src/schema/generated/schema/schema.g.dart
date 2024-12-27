@@ -1406,7 +1406,7 @@ _$RealtimeEventInputAudioBufferCommittedImpl
           eventId: json['event_id'] as String,
           type: $enumDecodeNullable(_$RealtimeEventTypeEnumMap, json['type']) ??
               RealtimeEventType.inputAudioBufferCommitted,
-          previousItemId: json['previous_item_id'] as String,
+          previousItemId: json['previous_item_id'] as String?,
           itemId: json['item_id'] as String,
         );
 
